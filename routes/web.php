@@ -20,3 +20,9 @@ $router->get('/admin/category/{id}', 'CategoryController@show');
 $router->post('/admin/category', 'CategoryController@store');
 $router->put('/admin/category/{id}', 'CategoryController@update');
 $router->delete('/admin/category/{id}', 'CategoryController@delete');
+
+$router->get('/admin/pages', 'PageController@index');
+$router->post('/admin/pages', 'PageController@store');
+$router->get('/admin/page/{id}', 'PageController@show');
+$router->put('/admin/page/{id}', 'PageController@update');
+$router->delete('/admin/page/{id}', 'PageController@destroy');

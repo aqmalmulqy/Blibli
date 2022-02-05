@@ -34,10 +34,10 @@ class CategoryController extends Controller
     {
         $category = Category::find($id);
 
-        $category->name = request('name');
+        $category->name = request()->input('name');
         $category->slug = Str::slug(request('name'));
-
-        $category->save;
+        
+        $category->save();
 
         return response()->json($category, 200);
     }
