@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Page;
+use App\Models\Products;
 use Illuminate\Http\Request;
 use Laravel\Lumen\Routing\Controller as BaseController;
 
-class ProductController extends BaseController
+class ProductsController extends BaseController
 {
     public function index()
     {
-        $products = Product::OrderBy("id", "DESC")->paginate(10);
+        $products = Products::OrderBy("id", "DESC")->paginate(10);
 
         $output = [
             "message" => "products",
@@ -24,47 +24,47 @@ class ProductController extends BaseController
     {
         $input = $request->all();
         
-        $product = Product::create($input);
+        $products = Products::create($input);
 
-        return response()->json($product, 200);
+        return response()->json($products, 200);
     }
 
     public function show($id)
     {
-        $product = Product::find($id);
+        $products = Products::find($id);
 
-        if (!$product) {
+        if (!$products) {
             abort(404);
         }
 
-        return response()->json($product, 200);
+        return response()->json($products, 200);
     }
 
     public function update(Request $request, $id)
     {
         $input = $request->all();
-        $product = Product::find($id);
+        $products = Products::find($id);
 
-        if (!$product) {
+        if (!$products) {
             abort(404);
         }
 
-        $product->fill($input);
-        $product->save();
+        $products->fill($input);
+        $products->save();
 
-        return response()->json($product, 200);
+        return response()->json($products, 200);
     }
 
     public function destroy($id)
     {
-        $product = Product::find($id);
+        $products = Products::find($id);
         
-        if (!$product) {
+        if (!$products) {
             abort(404);
         }
 
-        $product->delete();
-        $message = ["Pesan" => "Hapus halaman berhasil", "page_id" => $id];
+        $products->delete();
+        $message = ["Pesan" => "Hapus halaman berhasil", "products_id" => $id];
 
         return response()->json($message, 200);
     }

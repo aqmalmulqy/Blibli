@@ -33,8 +33,21 @@ $router->get('/admin/user/{id}', 'UserController@show');
 $router->put('/admin/user/{id}', 'UserController@update');
 $router->delete('/admin/user/{id}', 'UserController@destroy');
 
-$router->get('/admin/products', 'ProductController@index');
-$router->post('/admin/products', 'ProductController@store');
-$router->get('/admin/product/{id}', 'ProductController@show');
-$router->put('/admin/product/{id}', 'ProductController@update');
-$router->delete('/admin/product/{id}', 'ProductController@destroy');
+$router->get('/admin/products', 'ProductsController@index');
+$router->post('/admin/products', 'ProductsController@store');
+$router->get('/admin/product/{id}', 'ProductsController@show');
+$router->put('/admin/product/{id}', 'ProductsController@update');
+$router->delete('/admin/product/{id}', 'ProductsController@destroy');
+
+$router->get('/admin/comments', 'CommentController@index');
+$router->post('/admin/comments', 'CommentController@store');
+$router->get('/admin/comment/{id}', 'CommentController@show');
+$router->put('/admin/comment/{id}', 'CommentController@update');
+$router->delete('/admin/comment/{id}', 'CommentController@destroy');
+
+
+$router->get('/admin/categoriesposts', 'CategoriespostsController@index');
+$router->post('/admin/categoriesposts', 'CategoriespostsController@store');
+$router->get('/admin/categoriesposts/{id}', 'CategoriespostsController@show');
+$router->put('/admin/categoriesposts/{id}', 'CategoriespostsController@update');
+$router->delete('/admin/categoriesposts/{id}', 'CategoriespostsController@destroy');

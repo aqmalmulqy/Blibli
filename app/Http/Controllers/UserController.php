@@ -6,7 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Laravel\Lumen\Routing\Controller as BaseController;
 
-class UsersController extends BaseController
+class UserController extends BaseController
 {
     public function index()
     {
@@ -59,11 +59,12 @@ class UsersController extends BaseController
     {
         $user = User::find($id);
         
-        if (!$page) {
+        if (!$user) {
             abort(404);
         }
 
         $user->delete();
+        $message = ["Pesan" => "Hapus halaman berhasil", "user_id" => $id];
         $message = ["Pesan" => "Hapus halaman berhasil", "user_id" => $id];
 
         return response()->json($message, 200);

@@ -21,6 +21,9 @@ class CreateProductsTable extends Migration
             $table->string("desc");
             $table->string("picture");
             $table->string("category");
+            $table->string("user_id");
+            
+
             
         });
     }
